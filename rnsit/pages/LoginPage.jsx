@@ -13,7 +13,12 @@ function LoginPage({ navigation }) {
         />
       </View>
       <View>
-        <Button title="Faculty" />
+        <Button
+          title="Faculty"
+          onPress={() => {
+            navigation.navigate("LoginCred");
+          }}
+        />
       </View>
     </View>
   );
