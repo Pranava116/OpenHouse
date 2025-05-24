@@ -1,9 +1,11 @@
 import { Router } from "express";
-import User from "../models/UserModel";
+import express from "express";
+import User from "../models/UserModel.js";
 
-const router = Router();
+const router = express.Router();
 
-router.post("/login/student", async (req, res) => {
+router.post("/login", async (req, res) => {
+  console.log("Hello");
   const { USN } = req.body;
   const NewUser = new User({
     USN: USN,
@@ -12,3 +14,9 @@ router.post("/login/student", async (req, res) => {
   await NewUser.save();
   return res.json("Added Successfully");
 });
+
+// router.get("/", async (req, res) => {
+//   console.log("Connected to the server");
+//   return res.send("hello wolrd");
+// });
+export { router as UserRouter };

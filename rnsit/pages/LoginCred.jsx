@@ -3,15 +3,14 @@ import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 import axios from "axios";
 
 function LoginCred({ navigation }) {
-  const [USN, setUSN] = useState("");
-  function changeUSN(e) {
-    setUSN(e.target);
-  }
+  const [USN, setUSN] = React.useState(" ");
   async function PostUSN() {
     console.log(USN);
-    await axios.post("/login/student", { USN: USN }).then(function (response) {
-      console.log(response);
-    });
+    await axios
+      .post("http://localhost:4000/login", { USN: USN })
+      .then(function (response) {
+        //console.log(response);
+      });
   }
   return (
     <View>
@@ -19,7 +18,7 @@ function LoginCred({ navigation }) {
         style={styles.input}
         placeholder="Enter your USN"
         keyboardType="default"
-        onChange={changeUSN}
+        onChangeText={setUSN}
       />
       <Button title="Submit" onPress={PostUSN} />G
     </View>
