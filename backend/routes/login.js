@@ -4,15 +4,18 @@ import User from "../models/UserModel.js";
 
 const router = express.Router();
 
-router.post("/login", async (req, res) => {
-  console.log("Hello");
+router.post("/student", async (req, res) => {
   const { USN } = req.body;
-  const NewUser = new User({
-    USN: USN,
-    Admin: False,
-  });
-  await NewUser.save();
-  return res.json("Added Successfully");
+  try {
+    const NewUser = new User({
+      USN: USN,
+      Admin: false,
+    });
+    await NewUser.save();
+    return res.status(200).json("Added Successfully");
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 // router.get("/", async (req, res) => {
