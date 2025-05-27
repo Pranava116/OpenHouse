@@ -20,6 +20,14 @@ function LoginPage({ navigation }) {
           }}
         />
       </View>
+      <View>
+        <Button
+          title="Admin"
+          onPress={() => {
+            navigation.navigate("AdminCred");
+          }}
+        />
+      </View>
     </View>
   );
 }

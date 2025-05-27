@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import 'dotenv/config'
 import mongoose, { mongo } from "mongoose";
 import { UserRouter } from "./routes/login.js";
 import bodyparser from "body-parser";
@@ -11,13 +12,16 @@ app.use(
     extended: true,
   }),
 );
+
+const PORT = process.env.PORT
+const MONGO_URI = process.env.MONGO_URI
 app.use(cors());
 app.use("/login", UserRouter);
-app.listen(3000, (req, res) => {
+app.listen(PORT, (req, res) => {
   mongoose
     .connect(
-      "mongodb+srv://pranavagrao116:VRxr9vaFadqSlZOG@cluster0.qehstqa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+      MONGO_URI,
     )
     .then(console.log("Connected to the database"));
-  console.log("RUNNING IN PORT 3000");
+  console.log("RUNNING IN PORT ", PORT);
 });

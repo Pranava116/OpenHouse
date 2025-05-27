@@ -12,12 +12,12 @@ function LoginCred({ navigation }) {
     }
 
     try {
-      const response = await axios.post("http://localhost:3000/login/student", {
+      const response = await axios.post("http://192.168.0.104:3000/login/student", {
         USN,
       });
       console.log(response.data);
       Alert.alert("Success", "Login successful");
-      // navigation.navigate('Home'); // Uncomment if navigation is needed
+      navigation.navigate('Home'); // Uncomment if navigation is needed
     } catch (error) {
       console.error(error);
       Alert.alert("Error", "Login failed");

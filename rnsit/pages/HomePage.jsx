@@ -1,8 +1,14 @@
 import React from "react";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
+import { LoginCred } from "./LoginCred";
 
-function HomeScreen() {
-  return <Text>Hello, I am your cat!</Text>;
+function HomePage({ navigation }) {
+ 
+  return (
+  <View>
+    
+  <Text>Hello, I am your cat!</Text>
+  </View>);
 }
+export {HomePage}
 
-export { HomeScreen };
