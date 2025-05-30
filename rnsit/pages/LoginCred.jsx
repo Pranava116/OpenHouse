@@ -5,27 +5,26 @@ import axios from "axios";
 function LoginCred({ navigation }) {
   const [USN, setUSN] = useState("");
 
-
   async function PostUSN() {
-
-    
     if (!USN.trim()) {
       Alert.alert("Validation Error", "USN cannot be empty");
       return;
     }
     try {
-      const response = await axios.post("http://192.168.0.104:3000/login/student", {
-        USN
-      });
-      console.log(response.data)
+      const response = await axios.post(
+        "http://192.168.0.104:3000/login/student",
+        {
+          USN,
+        },
+      );
+      console.log(response.data);
       Alert.alert("Success", "Login successful");
-      navigation.navigate('Home'); // Uncomment if navigation is needed
+      navigation.navigate("Home"); // Uncomment if navigation is needed
     } catch (error) {
       console.error(error);
       Alert.alert("Error", "Login failed");
-    
-}
-}
+    }
+  }
   return (
     <View style={{ padding: 20 }}>
       <TextInput
@@ -39,7 +38,6 @@ function LoginCred({ navigation }) {
     </View>
   );
 }
-
 
 // function AdminPass({ navigation }){
 //   const [password, setPassword] = useState("")

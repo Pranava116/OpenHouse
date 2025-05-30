@@ -1,12 +1,17 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Text, Button } from "react-native";
+import React from "react";
 
-function AdminHome() {
+function AdminHome({ navigation }) {
+  function RedirectAddPost() {
+    navigation.navigate("AddPost");
+  }
   return (
     <View>
-      <Text>AdminHome</Text>
+      <View>
+        <Button title="Add" onPress={RedirectAddPost} />
+      </View>
     </View>
-  )
+  );
 }
 
-export {AdminHome}
+export { AdminHome };
