@@ -1,15 +1,16 @@
 import { Router } from "express";
 import express from "express";
 import User from "../models/UserModel.js";
-
+import Admin from "../models/UserModel.js"
 const router = express.Router();
 
 router.post("/student", async (req, res) => {
-  const { USN } = req.body;
+  const { USN, Admin} = req.body;
+  
   try {
     const NewUser = new User({
       USN: USN,
-      Admin: false,
+      Admin: Admin
     });
     await NewUser.save();
     return res.status(200).json("Added Successfully");

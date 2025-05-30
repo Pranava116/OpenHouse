@@ -1,17 +1,14 @@
 import React, { useState } from "react";
 import { Button, StyleSheet, TextInput, View, Alert, Text } from "react-native";
 import axios from "axios";
-import Checkbox from 'expo-checkbox';
 
 function LoginCred({ navigation }) {
   const [USN, setUSN] = useState("");
-  const [isChecked, setChecked] = useState(false);
-  const [password, setPassword] = useState("")
 
-  const admin_password = "pagarao"
+
   async function PostUSN() {
 
-    if (!isChecked){
+    
     if (!USN.trim()) {
       Alert.alert("Validation Error", "USN cannot be empty");
       return;
@@ -26,13 +23,7 @@ function LoginCred({ navigation }) {
     } catch (error) {
       console.error(error);
       Alert.alert("Error", "Login failed");
-    }
-  }
-else{
-  if (password == admin_password){
     
-    navigation.navigate("AdminHome")
-  }
 }
 }
   return (
@@ -44,21 +35,6 @@ else{
         onChangeText={setUSN}
         value={USN}
       />
-      <View style={{display: "flex"}}>
-      <Checkbox
-          style={styles.checkbox}
-          value={isChecked}
-          onValueChange={setChecked}
-          color={isChecked ? '#4630EB' : undefined}
-        />
-        <Text >Admin</Text>
-        </View>
-        {isChecked ? <View>
-      <TextInput placeholder="password"  style={styles.input}
-      onChangeText={setPassword}
-      value={password}
-      />
-    </View>: null}
       <Button title="Submit" onPress={PostUSN} />
     </View>
   );

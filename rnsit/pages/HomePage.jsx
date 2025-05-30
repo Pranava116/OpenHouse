@@ -6,7 +6,7 @@ function HomePage({ navigation }) {
  
   return (
   <View>
-    
+   
   <Text>Hello, I am your cat!</Text>
   </View>);
 }

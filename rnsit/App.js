@@ -5,8 +5,11 @@ import { LoginPage } from "./pages/LoginPage";
 import { LoginCred } from "./pages/LoginCred";
 import { HomePage } from "./pages/HomePage";
 import { AdminHome } from "./pages/AdminHome";
+import { AdminCred } from "./pages/AdminCred";
+import { BottomTabs } from "./components/BottomTabs";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-
+const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -17,7 +20,10 @@ const App = () => {
         <Stack.Screen name="AdminHome" component={AdminHome} />
         <Stack.Screen name="LoginCred" component={LoginCred} />
         <Stack.Screen name="Home" component={HomePage} />
+        <Stack.Screen name="AdminCred" component={AdminCred} />
+        
       </Stack.Navigator>
+        <BottomTabs />
     </NavigationContainer>
   );
 };
