@@ -31,7 +31,7 @@ else{
 }
     }
   return (
-    <View>
+    <View style={styles.container}>
       <TextInput
               style={styles.input}
               placeholder="Enter your USN"
@@ -46,7 +46,9 @@ else{
               onChangeText={setPassword}
               value={password}
             />
-            <Button title="Submit" onPress={AdminPost} />
+            <View style={styles.button}>
+              <Button title="Submit" onPress={AdminPost} />
+            </View>
     </View>
   )
 }
@@ -54,11 +56,23 @@ export {AdminCred}
 
 
 const styles = StyleSheet.create({
+   container: {
+    flex: 1,
+    padding: 24,
+    justifyContent: 'center',
+    backgroundColor: '#f9f9f9',
+  },
   input: {
-    height: 40,
-    margin: 12,
+    height: 50,
+    borderColor: '#ccc',
     borderWidth: 1,
-    padding: 10,
+    paddingHorizontal: 15,
+    marginBottom: 20,
+    borderRadius: 8,
+    backgroundColor: '#fff',
+  },
+  button: {
+    marginTop: 10,
   },
   checkbox: {
     margin: 8,

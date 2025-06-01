@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, StyleSheet, TextInput, View, Alert, Text } from "react-native";
+import { Button, StyleSheet,TouchableOpacity, TextInput, View, Alert, Text } from "react-native";
 import axios from "axios";
 
 function LoginCred({ navigation }) {
@@ -34,7 +34,14 @@ function LoginCred({ navigation }) {
         onChangeText={setUSN}
         value={USN}
       />
-      <Button title="Submit" onPress={PostUSN} />
+      <TouchableOpacity
+        style={styles.button} 
+        title="Submit"
+        onPress={PostUSN} 
+      >G
+        <Text style={styles.buttonText}>SUBMIT</Text>
+      </TouchableOpacity>
+      
     </View>
   );
 }
@@ -56,14 +63,31 @@ function LoginCred({ navigation }) {
 // }
 export { LoginCred };
 
+
 const styles = StyleSheet.create({
+  
   input: {
-    height: 40,
-    margin: 12,
+    height: 48,
+    borderColor: '#ddd',
     borderWidth: 1,
-    padding: 10,
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    marginTop: 120,
+    margin: 15,
+    fontSize: 16,
   },
-  checkbox: {
-    margin: 8,
+   button: {
+    backgroundColor: '#3498db',
+    height: 48,
+    borderRadius: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 10,
+    margin: 15
   },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: '700'
+  }
 });
